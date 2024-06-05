@@ -18,5 +18,7 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {        
-    }
+         _logger.LogInformation("About page visited at {DT}", 
+            DateTime.UtcNow.ToLongTimeString());
+   }
 }

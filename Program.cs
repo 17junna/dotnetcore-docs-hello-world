@@ -1,9 +1,15 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
+app.Logger.LogInformation("Adding Routes");
+app.MapGet("/", () => "Hello World!");
+app.Logger.LogInformation("Starting the app");
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
